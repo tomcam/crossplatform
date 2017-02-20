@@ -1,5 +1,5 @@
 # DEAD Languages
 
-* [Haxe](languages/haxe)
+* [Haxe](/languages/haxe)
 * [LiveCode](languages/livecode)
 * [Red](languages/red)
