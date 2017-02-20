@@ -1,4 +1,4 @@
-# Languages
+# DEAD Languages
 
 * [Haxe](languages/haxe)
 * [LiveCode](languages/livecode)
