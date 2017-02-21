@@ -1,3 +1,3 @@
 # Red
 
-Homepage: (Red Programming Language)[http://www.red-lang.org/]
+Homepage: [Red Programming Language](http://www.red-lang.org/)
