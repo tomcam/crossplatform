@@ -1,3 +1,3 @@
-# DEAD? Haxe
+# Haxe
 
 Homepage: [Haxe.org](https://haxe.org)
