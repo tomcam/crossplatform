@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Optimize mobile -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ page.title }}</title>
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/sidemenu.css">
+		<style>
+			p { font-size: 18px; }
+			footer { text-align: left; }
+			h1, h3, p, li { color: black; }
+			
+			h1 { font-size: 3.5em; font-weight: 300; line-height: 1; letter-spacing: -.06em; margin-bottom: .1em; }
+			h2 { color: #E32A3D; font-size: 2em; font-weight: 900; line-height: .9; margin-top: 0em;  }
+			h4 { color: black; line-height: .9; font-weight: 400; margin-bottom: 0; text-decoration: underline; text-transform: capitalize; }
+			
+			
+			strong { font-weight: 900; }
+			/* Left nav */
+			.pure-menu-link { background-color: #4F93F8; /* #E7E7E8; */ /* Should match #menu */}
+			.pure-menu-link a { color: white; }
+			
+			#menu { background-color: #4F93F8; /* #E7E7E8; */ /* Appears below links in menu */ }
+			#menu a { color: white; }
+			
+		</style>
+	</head>
+	<body>
+		<div id="layout">
+			<!-- Menu toggle -->
+			<a href="#menu" id="menuLink" class="menu-link">
+				<!-- Hamburger icon -->
+				<span></span>
+			</a>
+
+			<div id="menu">
+				<div class="pure-menu">
+					<ul class="pure-menu-list">
+						<li class="pure-menu-item menu-item-divided"><a href="/" class="pure-menu-link">Home</a></li>
+						<li class="pure-menu-item menu-item-divided"><a href="/timeline" class="pure-menu-link">Timeline</a></li>
+						<li class="pure-menu-item menu-item-divided"><a href="/check" class="pure-menu-link">Checklist</a></li>
+						<li class="pure-menu-item menu-item-divided"><a href="/further-reading" class="pure-menu-link">Further Reading</a></li>
+					</ul>
+				</div><!-- .pure-menu -->
+			</div><!-- .menu -->
+
+			<div id="main">			
+				<div class="content">
+					{{ content }}			
+					<footer>
+							
+						<a href="/about">About</a> <a href="/faq">FAQ</a> <a href="/contact">Contact</a> 
+						
+					</footer>
+				</div><!-- .content -->
+			</div><!-- .main -->			
+			
+		</div><!-- .layout -->
+		
+		<script>
+			// Provided with purecss for menu activation
+			(function (window, document) {
+
+			    var layout   = document.getElementById('layout'),
+				menu     = document.getElementById('menu'),
+				menuLink = document.getElementById('menuLink'),
+				content  = document.getElementById('main');
+
+			    function toggleClass(element, className) {
+				var classes = element.className.split(/\s+/),
+				    length = classes.length,
+				    i = 0;
+
+				for(; i < length; i++) {
+				  if (classes[i] === className) {
+				    classes.splice(i, 1);
+				    break;
+				  }
+				}
+				// The className is not found
+				if (length === classes.length) {
+				    classes.push(className);
+				}
+
+				element.className = classes.join(' ');
+			    }
+
+			    function toggleAll(e) {
+				var active = 'active';
+
+				e.preventDefault();
+				toggleClass(layout, active);
+				toggleClass(menu, active);
+				toggleClass(menuLink, active);
+			    }
+
+			    menuLink.onclick = function (e) {
+				toggleAll(e);
+			    };
+
+			    content.onclick = function(e) {
+				if (menu.className.indexOf('active') !== -1) {
+				    toggleAll(e);
+				}
+			    };
+
+			}(this, this.document));
+		</script>
+	</body>
+</html>
